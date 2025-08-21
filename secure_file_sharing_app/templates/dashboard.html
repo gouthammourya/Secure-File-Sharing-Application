@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure File Sharing Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- ✅ Socket.IO client -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+    <!-- ✅ CryptoJS for AES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <!-- ✅ Inject user info -->
+    <script>
+        window.currentUserId = "{{ user_id }}";
+        window.currentUserEmail = "{{ user_email }}";
+    </script>
+
+    <!-- ✅ WebRTC logic -->
+    <script src="/static/webrtc.js" defer></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f8ff;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        #mainButtons {
+            margin-bottom: 20px;
+        }
+
+        #shareSection, #receiveSection {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="file"], input[type="email"] {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+            max-width: 400px;
+            font-size: 14px;
+        }
+
+        .received-link {
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        .received-link:hover {
+            text-decoration: underline;
+        }
+
+        #historyList {
+            margin-top: 20px;
+            background-color: #eef5ff;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        #senderCancelBtn, #receiverCancelBtn {
+            background-color: #d9534f;
+        }
+
+        #senderCancelBtn:hover, #receiverCancelBtn:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome, {{ user_email }}</h2>
+
+    <!-- 🔘 Main action buttons -->
+    <div id="mainButtons">
+        <button onclick="showShare()">Share</button>
+        <button onclick="showReceive()">Receive</button>
+    </div>
+
+    <!-- 📤 Share File Section -->
+    <div id="shareSection">
+        <h3>Send Encrypted File</h3>
+        <input type="email" id="receiverEmail" placeholder="Enter recipient email" required />
+        <input type="file" id="fileInput" />
+
+        <button onclick="startConnectionByEmail(document.getElementById('receiverEmail').value)">
+            Send File
+        </button>
+
+        <!-- Cancel transfer button -->
+        <button id="senderCancelBtn" onclick="cancelSend()" style="display: none;">
+            ❌ Cancel Send
+        </button>
+    </div>
+
+    <!-- 📥 Receive File Section -->
+    <div id="receiveSection">
+        <h3>Received Files</h3>
+
+        <button onclick="toggleHistory()">📂 Received History </button>
+        <div id="historyList" style="display: none;"></div>
+
+        <button id="receiverCancelBtn" onclick="cancelReceive()" style="display: none;">
+            ❌ Cancel Receive
+        </button>
+    </div>
+
+    <!-- 👇 Toggle logic -->
+    <script>
+        function showShare() {
+            document.getElementById('mainButtons').style.display = 'none';
+            document.getElementById('shareSection').style.display = 'block';
+        }
+
+        function showReceive() {
+            document.getElementById('mainButtons').style.display = 'none';
+            document.getElementById('receiveSection').style.display = 'block';
+
+            fetch('/received-history')
+                .then(res => res.json())
+                .then(files => {
+                    const listContainer = document.getElementById('historyList');
+                    listContainer.innerHTML = "<h4>📂 Received File History:</h4>";
+
+                    if (files.length === 0) {
+                        listContainer.innerHTML += "<p>No files received yet.</p>";
+                        return;
+                    }
+
+                    files.forEach(file => {
+                        const item = document.createElement('div');
+                        item.innerHTML = `📄 <strong>${file.file_name}</strong> from user ID: ${file.sender_id} at ${file.timestamp}`;
+                        listContainer.appendChild(item);
+                    });
+                })
+                .catch(err => {
+                    document.getElementById('historyList').innerHTML = "<p>Error fetching history.</p>";
+                    console.error(err);
+                });
+        }
+    </script>
+</body>
+</html>
