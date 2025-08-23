@@ -76,19 +76,27 @@ Visit **http://127.0.0.1:5000/** in your browser.
 - Receiver decrypts chunks in real time and reconstructs the original file.  
 - Transfer logs & history stored securely in **MySQL**.  
 
+## 📸 Screenshots  
+<img width="1920" height="1020" alt="Image" src="https://github.com/user-attachments/assets/b33737ae-ae70-4045-9efc-fbcb809f19b5" />
+<img width="1920" height="1020" alt="Image" src="https://github.com/user-attachments/assets/29d24c07-52e7-426b-be09-e43adcb24e40" />
+<img width="1920" height="1020" alt="Image" src="https://github.com/user-attachments/assets/980d9c6b-49e2-4eed-b323-ab50eb0dd015" />
+<img width="1920" height="1020" alt="Image" src="https://github.com/user-attachments/assets/a695b40a-79d9-45a2-886d-6dce96a0d80a" />
+
+### 🧑‍💻 Sender dashboard
+<img width="1920" height="1020" alt="Image" src="https://github.com/user-attachments/assets/704b6ee1-c22d-486a-9458-44b0dfdd4481" />
+<img width="960" height="1020" alt="Image" src="https://github.com/user-attachments/assets/7c908eee-2798-4cd6-b0c2-1774424cb0a5" />
+
+### 🧑‍💻 Receiver dashboard
+<img width="1920" height="1020" alt="Image" src="https://github.com/user-attachments/assets/3a1fbd9e-7eaa-4782-a10a-d4afd28e7013" />
+<img width="960" height="1020" alt="Image" src="https://github.com/user-attachments/assets/669a06c8-1078-44d1-93e9-9be738413b4f" />
+
 ## 🌟 Future Enhancements  
 - 📱 Mobile app version (Android & iOS) with the same secure transfer protocol  
 - ☁️ Cloud backup & storage integration for received files  
 - 🤖 AI-powered anomaly detection to identify suspicious file transfers  
 - 🔑 Integration with blockchain for decentralized file verification  
 - 🖥️ Desktop client for offline secure file transfer  
-- 📊 Advanced analytics & admin dashboard for monitoring transfers  
+- 📊 Advanced analytics & admin dashboard for monitoring transfers
 
-## 📸 Screenshots  
-(Add UI screenshots here for better presentation)  
-
-## 🤝 Contribution  
-Pull requests are welcome! Please open an issue for major changes.  
-
-## 📜 License  
-This project is licensed under the **MIT License**.  
+## 🧑‍💻 Author
+ Developed by Goutham Mourya A M
