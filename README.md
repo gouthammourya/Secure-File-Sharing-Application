@@ -74,15 +74,7 @@ Visit **http://127.0.0.1:5000/** in your browser.
 - Files are encrypted using **AES-256-CBC** before transfer.  
 - Encrypted chunks are transmitted via **WebRTC DataChannel**.  
 - Receiver decrypts chunks in real time and reconstructs the original file.  
-- Transfer logs & history stored securely in **MySQL**.  
-
-## 🌟 Future Enhancements  
-- 📱 Mobile app version (Android & iOS) with the same secure transfer protocol  
-- ☁️ Cloud backup & storage integration for received files  
-- 🤖 AI-powered anomaly detection to identify suspicious file transfers  
-- 🔑 Integration with blockchain for decentralized file verification  
-- 🖥️ Desktop client for offline secure file transfer  
-- 📊 Advanced analytics & admin dashboard for monitoring transfers  
+- Transfer logs & history stored securely in **MySQL**.   
 
 ## 📸 Screenshots  
 <img width="1920" height="1020" alt="Image" src="https://github.com/user-attachments/assets/b33737ae-ae70-4045-9efc-fbcb809f19b5" />
@@ -97,3 +89,14 @@ Visit **http://127.0.0.1:5000/** in your browser.
 ### 🧑‍💻 Receiver dashboard
 <img width="1920" height="1020" alt="Image" src="https://github.com/user-attachments/assets/3a1fbd9e-7eaa-4782-a10a-d4afd28e7013" />
 <img width="960" height="1020" alt="Image" src="https://github.com/user-attachments/assets/669a06c8-1078-44d1-93e9-9be738413b4f" />
+
+## 🌟 Future Enhancements  
+- 📱 Mobile app version (Android & iOS) with the same secure transfer protocol  
+- ☁️ Cloud backup & storage integration for received files  
+- 🤖 AI-powered anomaly detection to identify suspicious file transfers  
+- 🔑 Integration with blockchain for decentralized file verification  
+- 🖥️ Desktop client for offline secure file transfer  
+- 📊 Advanced analytics & admin dashboard for monitoring transfers
+
+## 🧑‍💻 Author
+- Developed by Goutham Mourya A M
