@@ -1,0 +1,118 @@
+/* ✅ Global Layout */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f0f0;
+  padding: 40px;
+  text-align: center;
+  color: #333;
+}
+
+/* ✅ Form Container */
+.form-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* ✅ Inputs and Buttons */
+input, button {
+  padding: 10px;
+  margin: 10px;
+  width: 90%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #388e3c;
+}
+
+/* ✅ Cancel Buttons */
+button#senderCancelBtn,
+button#receiverCancelBtn {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  margin-top: 10px;
+  display: none;
+}
+
+button#senderCancelBtn:hover,
+button#receiverCancelBtn:hover {
+  background-color: #c9302c;
+}
+
+/* ✅ Progress Bar Styling */
+progress {
+  height: 20px;
+  margin-top: 10px;
+  width: 90%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #4CAF50;
+  border-radius: 5px;
+}
+
+/* ✅ Message Box Styling */
+#messageBox {
+  transition: all 0.4s ease;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 15px;
+  padding: 10px;
+  display: none;
+  background-color: #e8ffe8;
+  border: 1px solid #4CAF50;
+  color: #2b572b;
+}
+
+/* ✅ Received File Link */
+.received-link {
+  display: block;
+  margin-top: 15px;
+  font-size: 16px;
+  color: #28a745;
+  text-decoration: none;
+}
+
+.received-link:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Received History List */
+#historyList {
+  background-color: #eef5ff;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 20px;
+  text-align: left;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#historyList div {
+  padding: 5px 0;
+  border-bottom: 1px dashed #ccc;
+}
